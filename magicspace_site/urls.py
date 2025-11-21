@@ -1,27 +1,27 @@
-"""
-URL configuration for magicspace_site project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
-
 from django.contrib import admin
 from django.urls import path
+from pages import views as pages_views
 from pages.views import index, contact_submit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='home'),
-    path('contact-submit/', contact_submit, name='contact_submit'),
+
+    # HOME
+    path('', pages_views.index, name='home'),
+
+    # DULA
+    path('dula/', pages_views.dula, name='dula'),
+    path('dula/kontrakcie/', pages_views.kontrakcie, name='kontrakcie'),
+    path('dula/cerrada/', pages_views.cerrada, name='cerrada'),
+    path('dula/porodny-kurz/', pages_views.porodny_kurz, name='porodny_kurz'),
+
+    # JOGA – твои новые короткие ссылки
+    path('jogamartin/', pages_views.joga_martin, name='joga_martin'),
+    path('korp/', pages_views.korp, name='korp'),
+
+    # ABOUT & CONTACT
+    path('o-mne/', pages_views.o_mne, name='o_mne'),
+    path('kontakt/', pages_views.kontakt, name='kontakt'),
 ]
+
+

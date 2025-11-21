@@ -1,146 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}Magic Space — Vítam Vás v mojom priestore{% endblock %}
 {% block content %}
 
-<section class="hero-section py-5 py-lg-6 bg-gradient">
-  <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold mb-3">Príprava na pôrod, jemne a s láskou</h1>
-        <p class="lead text-secondary mb-4">
-          Dula, ženské rituály a podpora v šestonedelí. Kurz pre páry aj ženy — v Martine a online po celej SR.
-        </p>
-        <a href="#contact" class="btn btn-primary btn-lg">Chcem termín</a>
-        <a href="#services" class="btn btn-outline-secondary btn-lg ms-2">Zistiť viac</a>
-      </div>
-      <div class="col-lg-6">
-        <img class="img-fluid rounded-4 shadow" src="https://placehold.co/900x600" alt="Magic Space">
-      </div>
+<!-- HERO с большим фото -->
+<section class="ms-hero">
+  <div class="ms-hero-bg"
+       style="background-image: url('/static/img/file.jpg')"></div>
+  <div class="ms-hero-overlay"></div>
+  <div class="ms-container ms-hero-inner">
+    <h1 class="ms-hero-title">Vítam Vás v mojom priestore</h1>
+  </div>
+</section>
+
+<!-- Текст миссии -->
+<section class="ms-section ms-section-centered">
+  <div class="ms-container ms-text-block">
+    <p>
+      Moje poslanie je priniesť pokoj, zdravie a istotu do každého okamihu tvojho života.
+      Sprevádzam ženy v dôležitých a náročných obdobiach – s úctou, porozumením a materinskou nehou, ktorá neláme, ale drží.
+    </p>
+    <p>
+      Neodsudzujem. Prijímam a pomáham. Podporujem telo aj dušu – cez jogu, meditácie, stretnutia, soundhealing
+      a ženské rituály, ktoré liečia a prinášajú rovnováhu.
+    </p>
+    <p>
+      A pre tímy a firmy vytváram pokojnú a príjemnú atmosféru priamo na pracovisku, aby aj pracovný deň mohol byť miestom regenerácie, sústredenia a ľudskosti.
+      Magic Space je pozvanie – nájsť ticho uprostred ruchu, návrat k sebe a k tomu, čo je skutočne dôležité.
+    </p>
+  </div>
+</section>
+
+<!-- Блоки услуг (йога / sound healing) -->
+<section class="ms-section ms-section-grey">
+  <div class="ms-container ms-service-row">
+    <div class="ms-service-text">
+      <h2 class="ms-service-title">Tehotenská joga v Martine</h2>
+      <p class="ms-service-sub">Streda 17:30</p>
+      <p>Jemná, podporná lekcia jogy pre tehotné ženy, zameraná na dych, uvoľnenie a kontakt s bábätkom.</p>
+      <a class="btn btn-leaf" href="#calendar">Rezervovať teraz</a>
+    </div>
+    <div class="ms-service-image">
+      <img src="{% static 'img/service-pregnancy-yoga.jpg' %}" alt="Tehotenská joga">
+    </div>
+  </div>
+
+  <div class="ms-container ms-service-row ms-service-row-reverse">
+    <div class="ms-service-text">
+      <h2 class="ms-service-title">Sound healing v Martine</h2>
+      <p class="ms-service-sub">Soundhealing s tibetskými spievajúcimi miskami</p>
+      <p>Hlboká relaxácia, uvoľnenie nervového systému a návrat k sebe cez jemné vibrácie zvuku.</p>
+      <a class="btn btn-leaf" href="#calendar">Rezervovať teraz</a>
+    </div>
+    <div class="ms-service-image">
+      <img src="{% static 'img/service-sound-healing.jpg' %}" alt="Sound healing">
     </div>
   </div>
 </section>
 
-<section id="services" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-4">Ako ti viem pomôcť</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 fw-bold">Príprava na pôrod (2 soboty)</h3>
-            <p class="text-secondary">Praktický kurz pre páry alebo ženy. Dych, zvládanie kontrakcií, úloha partnera, pôrodný plán.</p>
-            <ul class="small text-secondary mb-0">
-              <li>Martin: 17 & 24. máj · 9:30–13:30</li>
-              <li>Online: piatky · 50 €</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 fw-bold">Podpora duly pri pôrode</h3>
-            <p class="text-secondary">Nežná prítomnosť, bezpečie a kontinuita starostlivosti od tehotenstva po šestonedelie.</p>
-            <ul class="small text-secondary mb-0">
-              <li>Martin · Turiec · ČR na dohodu</li>
-              <li>Rituál uzavretia po pôrode</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 fw-bold">Ženské rituály & joga</h3>
-            <p class="text-secondary">Kruhy, rituál prvých menštruácií, sound healing, jemná popôrodná joga a jogaterapia.</p>
-            <ul class="small text-secondary mb-0">
-              <li>Skupinovo aj individuálne</li>
-              <li>S možnosťou online</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+<!-- Календарь / формы записи (пока просто секция) -->
+<section id="calendar" class="ms-section">
+  <div class="ms-container">
+    <h2 class="ms-section-title">Kalendár / Rezervácie</h2>
+    <p class="muted">
+      Tu bude kalendár alebo formuláre na prihlásenie na skupinové lekcie
+      (tehotenská joga, sound healing, ženské kruhy...). Zatiaľ ide len o miesto v dizajne.
+    </p>
+    <div class="ms-calendar-placeholder">
+      Kalendár a formuláre pridáme v ďalšom kroku.
     </div>
   </div>
 </section>
 
-<section id="about" class="py-5 bg-light">
-  <div class="container">
-    <div class="row g-4 align-items-center">
-      <div class="col-lg-5">
-        <img class="img-fluid rounded-4 shadow" src="https://placehold.co/700x700" alt="O mne">
-      </div>
-      <div class="col-lg-7">
-        <h2 class="fw-bold mb-3">Ahoj, som Anastasia — tvoja dula</h2>
-        <p class="text-secondary">
-          Podporujem ženy v tehotenstve, pri pôrode a po ňom. Spájam moderné poznatky s jemnou tradíciou —
-          rešpekt k telu, bezpečiu a prirodzenosti procesu.
-        </p>
-        <ul class="text-secondary">
-          <li>Dula (Doula+), lektorka jogy od 2019</li>
-          <li>Jogaterapia pohybového aparátu (2023)</li>
-          <li>Rituály pre ženy · Sound healing (spievajúce misky)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-4">Referencie</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <p class="mb-1">„Vďaka Anastasii som sa pri pôrode cítila v bezpečí. Dych, dotyk a pokoj.“</p>
-          <div class="small text-muted">— Katarína</div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <p class="mb-1">„Kurz bol praktický a jasný. Partner presne vedel, čo robiť.“</p>
-          <div class="small text-muted">— Lucia & Peter</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="py-5 bg-light">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <h2 class="fw-bold mb-3">Napíš mi</h2>
-        <p class="text-secondary">Odošli správu a ozvem sa ti späť do 1–2 dní.</p>
-        <form action="{% url 'contact_submit' %}" method="post" class="needs-validation" novalidate>
-          {% csrf_token %}
-          <div class="mb-3">
-            <label class="form-label">Meno</label>
-            <input type="text" class="form-control" name="name" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Správa</label>
-            <textarea class="form-control" rows="4" name="message" required></textarea>
-          </div>
-          <button class="btn btn-primary">Odoslať</button>
-        </form>
-      </div>
-      <div class="col-lg-6">
-        <div class="p-4 bg-white rounded-4 shadow-sm">
-          <h3 class="h5 fw-bold">Kontakty</h3>
-          <ul class="list-unstyled text-secondary mb-0">
-            <li>Email: <a href="mailto:info@magicspace.sk">info@magicspace.sk</a></li>
-            <li>IG: <a href="https://instagram.com/magicspacedula" target="_blank" rel="noopener">@magicspacedula</a></li>
-            <li>Tel: 0951 247 995</li>
-            <li>Martin · Slovensko</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<!-- Kde MagicSpace -->
+<section class="ms-section">
+  <div class="ms-container ms-where">
+    <h2 class="ms-where-title">Kde MagicSpace</h2>
+    <a href="https://maps.app.goo.gl/" target="_blank" rel="noopener" class="ms-where-link">
+      Andreja Kmeťa 577/22, Martin, 036 01 Martin
+    </a>
   </div>
 </section>
 

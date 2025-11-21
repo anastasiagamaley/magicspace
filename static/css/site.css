@@ -1,5 +1,441 @@
-:root { --radius: 1.25rem; }
-body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-.bg-gradient { background: linear-gradient(180deg, #fff 0%, #f7f9fc 100%); }
-.card, .rounded-4 { border-radius: var(--radius) !important; }
-.navbar .btn { border-radius: calc(var(--radius) - .5rem); }
+/* ==== Палитра под твой оригинальный сайт ==== */
+:root {
+  --bg-cream: #F9F7F4;       /* общий фон */
+  --bg-light: #FFFFFF;       /* белые секции / навбар */
+  --bg-grey:  #F2EFEC;       /* мягкий серо-кремовый блок */
+  --bordeaux: #651B0F;       /* футер, сильный акцент */
+  --bordeaux-dark: #4A0E08;
+  --text-main: #22201C;      /* основной текст */
+  --text-muted: #6F6A64;     /* вторичный текст */
+  --teal: #335C5E;           /* заголовки, акцент */
+  --leaf: #315A57;           /* зелёные ссылки/кнопки */
+  --line: rgba(0,0,0,.08);
+  --radius: 14px;
+  --shadow-soft: 0 12px 30px rgba(0,0,0,.08);
+}
+
+/* ==== БАЗА ==== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-cream);
+  color: var(--text-main);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+h1, h2, h3, .title {
+  font-family: "Playfair Display", Georgia, serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.ms-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ms-section {
+  padding: 72px 0;
+  background: var(--bg-cream);
+}
+
+.ms-section-grey {
+  background: var(--bg-grey);
+}
+
+.ms-section-centered {
+  background: var(--bg-light);
+}
+
+.ms-section-title {
+  font-size: 32px;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+/* ==== NAVBAR ==== */
+.ms-nav {
+  position: sticky;
+  line-height: 1;
+  padding: 0;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.98); /* почти белый фон */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.ms-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  padding: 2px 0;
+}
+
+.ms-brand {
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  gap: 12px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 33px;   /* ↑ увеличили в 1.5 раза */
+  color: var(--teal);
+}
+
+.ms-logo {
+  width: 128px;       /* ↑ увеличили в 2 раза */
+  height: 128px;
+  object-fit: contain;
+}
+
+.ms-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 15px;
+}
+
+.ms-nav-links a {
+  color: var(--text-main);
+  opacity: 0.8;
+}
+
+.ms-nav-links a:hover {
+  opacity: 1;
+  color: var(--leaf);
+}
+
+.ms-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+/* ==== HERO ==== */
+.ms-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 420px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.ms-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+}
+
+/* делаем оверлей НЕ тёмным, а лёгким */
+.ms-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(249, 247, 244, 0.25) 0%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+}
+
+.ms-hero-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ms-hero-title {
+  font-size: 40px;
+  line-height: 1.2;
+  max-width: 800px;
+  color: var(--bg-light);          /* белый текст по фото */
+  text-shadow: 0 4px 14px rgba(0,0,0,.45);
+}
+
+/* ==== ТЕКСТОВОЙ БЛОК ==== */
+.ms-text-block {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.ms-text-block p {
+  margin-bottom: 16px;
+}
+
+/* ==== БЛОКИ УСЛУГ ==== */
+.ms-service-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(0,0,0,.04);
+}
+
+.ms-service-row:last-child {
+  border-bottom: none;
+}
+
+.ms-service-row-reverse {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.ms-service-title {
+  font-size: 28px;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.ms-service-sub {
+  color: var(--teal);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.ms-service-text p {
+  margin-bottom: 12px;
+}
+
+.ms-service-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ==== КНОПКИ ==== */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-leaf {
+  background: var(--leaf);
+  border-color: var(--leaf);
+  color: #fff;
+}
+
+.btn-leaf:hover {
+  background: #23413f;
+  border-color: #23413f;
+}
+
+/* ==== КАЛЕНДАРЬ (плейсхолдер) ==== */
+.ms-calendar-placeholder {
+  margin-top: 16px;
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px dashed rgba(0,0,0,.25);
+  background: #fff;
+  color: var(--text-muted);
+}
+
+/* ==== Kde MagicSpace ==== */
+.ms-where {
+  text-align: center;
+  padding: 56px 0 32px;
+}
+
+.ms-where-title {
+  font-size: 30px;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+
+.ms-where-link {
+  color: var(--leaf);
+  text-decoration: underline;
+}
+
+/* ==== ФУТЕР ==== */
+.ms-footer {
+  background: var(--bordeaux);
+  color: #fff;
+  padding: 40px 0;
+  margin-top: 40px;
+}
+
+.ms-footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  gap: 20px;
+}
+
+
+
+.ms-logo-big {
+  width: 130px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+.ms-footer-links,
+.ms-footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.ms-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* ← центрируем внутри */
+  text-align: center;       /* ← текст ровно под логотипом */
+  gap: 8px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.ms-footer-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.ms-footer-name {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.ms-footer-links a,
+.ms-footer-contacts a {
+  color: #FFEFE6;
+  text-decoration: none;
+}
+
+.ms-footer-links a:hover,
+.ms-footer-contacts a:hover {
+  text-decoration: underline;
+}
+
+.ms-footer a {
+  color: #FFEFE6;
+}
+
+/* ==== МОБИЛКА ==== */
+@media (max-width: 900px) {
+  .ms-nav-links {
+    position: absolute;
+    top: 56px;
+    right: 0;
+    left: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 10px 20px 14px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    display: none;
+  }
+  .ms-nav-links.ms-open {
+    display: flex;
+  }
+  .ms-nav-toggle {
+    display: block;
+  }
+
+  .ms-hero {
+    height: 60vh;
+  }
+
+  .ms-hero-title {
+    font-size: 32px;
+    padding: 0 10px;
+  }
+
+  .ms-service-row,
+  .ms-service-row-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .ms-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  
+}
+.ms-brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ms-brand-link:visited {
+  color: inherit;
+}
+
+/* DULA DROPDOWN MENU */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  position: relative;
+  padding-right: 12px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  padding: 10px 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 999;
+  min-width: 180px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  white-space: nowrap;
+  color: var(--text-main);
+}
+
+.dropdown-menu a:hover {
+  background: #f5f4f2;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

@@ -1,11 +1,9 @@
-(() => {
-  const forms = document.querySelectorAll('.needs-validation');
-  Array.from(forms).forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      if (!form.checkValidity()) {
-        event.preventDefault(); event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    }, false);
-  });
-})();
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.ms-nav-toggle');
+  const links = document.querySelector('.ms-nav-links');
+  if (btn && links) {
+    btn.addEventListener('click', () => {
+      links.classList.toggle('ms-open');
+    });
+  }
+});
